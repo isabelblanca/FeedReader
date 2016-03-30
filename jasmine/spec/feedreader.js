@@ -9,6 +9,7 @@
  * to ensure they don't run until the DOM is ready.
  */
 $(function() {
+    console.log(allFeeds[1].url)
     /* This is our first test suite - a test suite just contains
     * a related set of tests. This suite is all about the RSS
     * feeds definitions, the allFeeds variable in our application.
@@ -26,17 +27,27 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-
+        it('has an URL', function() {
+            for(feed in allFeeds) {
+                expect(allFeeds[feed].url).toBeDefined();
+                expect(allFeeds[feed].url).not.toBe(0);
+            };
+        });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+        it('has a name'), function() {
+            for (name in allFeeds) {
+                expect(allFeeds[feed].name).toBeDefined();
+                expect(allFeeds[feed].name).not.toBe(0);
+            }
+        }
     });
 
 
