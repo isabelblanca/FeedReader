@@ -65,18 +65,25 @@ $(function() {
 
             $('.menu-icon-link').trigger('click');
             expect($('body').attr('class')).toEqual("menu-hidden")
-
         })
     });
-        console.log (menuIcon.on)
+        
     /* TODO: Write a new test suite named "Initial Entries" */
-
+    describe ('Initial entries', function() {
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        beforeEach(function(done) {
+            loadFeed(0,done);
+        });
+        it ('at least one .entry element', function(done) {
+            expect($('.feed').find('.entry').length).toBeGreaterThan(1);
+            done();
+        })
+    });
     /* TODO: Write a new test suite named "New Feed Selection"
 
         /* TODO: Write a test that ensures when a new feed is loaded
