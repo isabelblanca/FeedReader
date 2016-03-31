@@ -30,26 +30,20 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-        it('has an URL', function() {
-            for(feed in allFeeds) {
-                expect(allFeeds[feed].url).toBeDefined();
-                expect(allFeeds[feed].url).not.toBe(0);
-            };
-        });
-
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-        it('has a name'), function() {
-            for (name in allFeeds) {
+        it('has a name and url', function() {
+            for (feed in allFeeds) {
                 expect(allFeeds[feed].name).toBeDefined();
                 expect(allFeeds[feed].name).not.toBe(0);
-            }
-        }
+                expect(allFeeds[feed].url).toBeDefined();
+                expect(allFeeds[feed].url).not.toBe(0);
+            };
+        });
     });
 
-    console.log ($("body").attr("class"))
     /* TODO: Write a new test suite named "The menu" */
     describe('the menu', function() {
         /* TODO: Write a test that ensures the menu element is
@@ -65,7 +59,16 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+        it ('menu changes when clicked', function() {
+            $('.menu-icon-link').trigger('click');
+            expect($('body').attr('class')).toEqual("");
+
+            $('.menu-icon-link').trigger('click');
+            expect($('body').attr('class')).toEqual("menu-hidden")
+
+        })
     });
+        console.log (menuIcon.on)
     /* TODO: Write a new test suite named "Initial Entries" */
 
         /* TODO: Write a test that ensures when the loadFeed
