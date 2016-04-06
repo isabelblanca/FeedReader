@@ -34,9 +34,9 @@ $(function() {
         it('has a name and url', function() {
             for (var feed in allFeeds) {
                 expect(allFeeds[feed].name).toBeDefined();
-                expect(allFeeds[feed].name).not.toBe(0);
+                expect(allFeeds[feed].name.length).not.toBe(0);
                 expect(allFeeds[feed].url).toBeDefined();
-                expect(allFeeds[feed].url).not.toBe(0);
+                expect(allFeeds[feed].url.length).not.toBe(0);
             }
         });
     });
@@ -47,7 +47,7 @@ $(function() {
          * hidden by default.
          */
         it ('menu hidden by default', function() {
-            expect($("body").attr("class")).toEqual("menu-hidden");
+            expect($("body").hasClass('menu-hidden')).toBeTruthy();
         });
          /* This is a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -56,10 +56,10 @@ $(function() {
           */
         it ('menu changes when clicked', function() {
             $('.menu-icon-link').trigger('click');
-            expect($('body').attr('class')).toEqual("");
+            expect($('body').hasClass('menu-hidden')).toBeFalsy();;
 
             $('.menu-icon-link').trigger('click');
-            expect($('body').attr('class')).toEqual("menu-hidden");
+            expect($('body').hasClass('menu-hidden')).toBeTruthy();
         });
     });
         
@@ -72,9 +72,8 @@ $(function() {
         beforeEach(function(done) {
             loadFeed(0,done);
         });
-        it ('at least one .entry element', function(done) {
-            expect($('.feed').find('.entry').length).toBeGreaterThan(1);
-            done();
+        it ('at least one .entry element', function() {
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
     /* This is a new test suite named "New Feed Selection"*/
