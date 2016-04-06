@@ -1,4 +1,5 @@
-# This is a web-based application that reads RSS feeds, with interesant links and news 
+#This is a web-based application that reads RSS feeds, 
+with interesant links and news 
 about front-end development. For enjoy it, open the index.html file on your browser.
 
 
